@@ -1,9 +1,11 @@
-const vista = "archivos"
+const express = require('express');
+const router = express.Router();
+const vista = "archivos";
 
-let self = {}
+// Define the index route
+router.get('/', async (req, res) => {
+    res.render(`${vista}/index`);
+});
 
-self.index = async function (req, res) { 
-    res.render(`${vista}/index`)
-}
-
-module.exports = self
+// Export the router
+module.exports = router;
