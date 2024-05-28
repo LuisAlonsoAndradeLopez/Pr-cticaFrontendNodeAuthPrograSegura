@@ -1,0 +1,34 @@
+<% locals. Title="Peliculas" %>
+<% locals.SubTitle="Categorias" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"> <a href="<%=locals.AppPath %>/peliculas/" class="text-decoration-none"
+                title="Regresar al listado">Listado</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals. SubTitle %>
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-center mb-3">
+    <%=locals.Title %> <small class="text-muted fs-5">
+            <%=locals. SubTitle %>
+        </small>
+</h2>
+
+<h4 class="my-3">Categorias</h4>
+<%if (locals.Model.categorias !=null) { %>
+    <%- include("_categoriaslistadopartial", { Peliculaid: locals.Model.peliculaid, Model: locals.
+        Model.categorias}) %>
+<%}%>
+<div class="text-center mt-3">
+    <a href="<%=locals.AppPath%>/peliculas/" class="btn btn-sm btn-outline-secondary" title="Cancelar">Cancelar</a>
+</div>
+
+<h4 class="my-3">Película</h4>
+<%- include("_cardpartial") %>
+
+<%- include("../shared/footer") %>

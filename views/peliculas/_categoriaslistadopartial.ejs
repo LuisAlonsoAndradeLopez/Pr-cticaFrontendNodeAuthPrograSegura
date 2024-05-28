@@ -1,0 +1,45 @@
+<div class="row small mb-3">
+    <div class="col">
+        <a class="text-decoration-none" href="<%=locals.AppPath %>/peliculas/categoriasagregar/<%=locals.Peliculaid %>"
+            title="Agregar">Agregar</a>
+    </div>
+    <div class="col text-end">
+        Mostrando <%=locals.Model.length %> elementos
+    </div>
+</div>
+
+<%if (locals.Model.length > 0) { %>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered small">
+            <thead class="text-center">
+                <tr>
+                    <th> Id </th>
+                    <th> Nombre </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% locals.Model.forEach(function(item) { %>
+                <tr>
+                    <td>
+                        <%= item.categoriaId %>
+                    </td>
+                    <td>
+                        <%= item.nombre %>
+                    </td>
+                    <td width="1">
+                        <a class="text-decoration-none small text-uppercase"
+                            href="<%=locals.AppPath>/peliculas/categorias remover/<%=locals. Peliculaid %>?categoriaid=<%=item.categoriaId %>">Eliminar</a>
+                    </td>
+                <% }) %>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<%} else { %>
+    <div class="mt-5">
+        <div class="alert alert-warning" role="alert">
+            No se han encontrado elementos. Inténtelo de nuevo más tarde.
+        </div>
+    </div>
+<%}%>

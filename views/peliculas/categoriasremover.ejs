@@ -1,0 +1,61 @@
+<% locals.Title "Películas" %>
+<% locals.SubTitle="Remover categoría" %>
+
+<% include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+    </ol>
+</nav>
+
+<li class="breadcrumb-item"> <a href="<%=locals.AppPath %>/peliculas/" class="text-decoration-none"
+        title="Regresar al listado">Listado</a></li>
+<li class="breadcrumb-item"><a
+        href="<%=locals.AppPath%>/peliculas/categorias/<%= locals.Model.peliculaid %>"
+        class="text-decoration-none" title="Regresar a las categorías ">Categorías</a></li>
+<li class="breadcrumb-item active" aria-current="page">
+    <%=locals. SubTitle %>
+</li>
+
+<h2 class="text-center mb-3">
+    <%=locals. Title %> <small class="text-muted fs-5">
+            <%=locals.SubTitle %>
+        </small>
+</h2>
+
+<h4 class="my-3">Remover categoría</h4>
+
+<p class="text-danger">¿Está seguro que desea remover este elemento?</p>
+<p class="text-danger">
+    <%= locals.error %>
+</p>
+
+<form method="post" novalidate="novalidate">
+    <div class="card mt-3">
+        <div class="card-body small">
+            <div class="form-floating mb-3">
+                <input placeholder="CategoriaId" readonly="" class="form-control-plaintext is-valid"
+                    type="number" id="CategoriaId" name="CategoriaId"
+                    value="<%=locals.Categoria.categoriaId %>">
+                <label class="form-label" for="CategoriaId">Categoría</label>
+            </div>
+            <div class="mb-3 ps-3">
+                <label asp-for="Nombre" class="form-label form-text">Nombre</label>
+                <div class="form-text text-body">
+                    <%= locals.Categoria.nombre %>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <button id="btnEnviar" type="submit" class="btn btn-sm btn-danger">Remover</button>
+        <a href="<%=locals.AppPath>/peliculas/categorias/<%= locals.Model.peliculald %>"
+            class="btn btn-sm btn-outline-secondary" title="Cancelar">Cancelar</a>
+    </div>
+</form>
+
+<h4 class="my-3">Película</h4>
+<%- include("_cardpartial") %>
+
+<%- include("../shared/footer", { RenderScriptsSection: true }) %>

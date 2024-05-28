@@ -1,0 +1,48 @@
+<% locals.Title="Usuarios" %>
+<% locals.SubTitle="Eliminar" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"><a href="<%=locals.AppPath%>/usuarios/" class="text-decoration-none"
+                title="Regresar al listado">Listado</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals. SubTitle %>
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-center mb-3">
+    <%=locals.Title %> <small class="text-muted fs-5">
+            <%=locals.SubTitle %>
+        </small>
+</h2>
+
+<% if(!locals.Model.protegida) {%>
+    <p class="text-danger">¿Está seguro que desea eliminar este elemento?</p>
+    <p class="text-danger">
+        <%= locals.error %>
+    </p>
+    <%- include("_detallepartial") %>
+    <form method="post" novalidate="novalidate">
+        <div class="text-center mt-3">
+            <button id="btnEnviar" type="submit" class="btn btn-sm btn-danger">Eliminar</button>
+            <a href="<%=locals.AppPath%>/usuarios/" class="btn btn-sm btn-outline-secondary"
+                title="Cancelar">Cancelar</a>
+        </div>
+    </form>
+<%} else {%>
+    <div class="mt-5">
+        <div class="alert alert-warning" role="alert">
+            La categoría "<strong>
+                <%= locals.Model.nombre %>
+            </strong>" esta protegida y no puede eliminarse. </div>
+    </div>
+    <div class="text-center mt-3">
+        <a href="<%=locals.AppPath%>/usuarios/" class="btn btn-sm btn-outline-secondary"
+            title="Cancelar">Cancelar</a>
+    </div>
+<%}%>
+
+<%- include("../shared/footer", {RenderScripts Section: true }) %>

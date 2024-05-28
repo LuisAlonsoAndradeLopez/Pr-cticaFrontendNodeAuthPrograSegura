@@ -1,0 +1,80 @@
+<% locals. Title="Categorias" %>
+<% locals.SubTitle="Listado" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals.SubTitle %>
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-center mb-3">
+    <%=locals. Title %> <small class="text-muted fs-5">
+            <%=locals. SubTitle %>
+        </small>
+</h2>
+
+<div class="row small mb-3">
+    <div class="col">
+        <a class="text-decoration-none" href="<%=locals.AppPath %> /categorias/crear"
+            title="Crear nuevo">Crear nueva</a>
+    </div>
+    <div class="col text-end">
+        Mostrando <%=locals. Model.length %> elementos
+    </div>
+</div>
+
+<%if (locals.Model.length > 0) { %>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered small">
+            <thead class="text-center">
+                <tr>
+                    <th> Id </th>
+                    <th> Nombre </th>
+                    <th> Eliminable </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% Model.forEach(function(item) { %>
+                    <tr>
+                        <td>
+                            <%= item.categoriald %>
+                        </td>
+                        <td>
+                            <%= item.nombre %>
+                        </td>
+                        <td>
+                            <%= item.protegida ? "No" : "S1" %>
+                        </td>
+                        <td width="1">
+                            <a class="text-decoration-none small text-uppercase"
+                                href="<%=locals.AppPath%>/categorias/detalle/<%=item.categoriaId %>">Detalle</a>
+                        </td>
+                        <td width="1">
+                            <a class="text-decoration-none small text-uppercase"
+                                href="<%=locals.AppPath%>/categorias/editar/<%=item.categoriaId %>">Editar</a>
+                        </td>
+                        <td width="1">
+                            <a class="text-decoration-none small text-uppercase"
+                                href="<%=locals.AppPath>/categorias/eliminar/<%=item.categoriaId %>">Eliminar</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+<% } else { %>
+    <div class="mt-5">
+        <div class="alert alert-warning" role="alert">
+            No se han encontrado elementos. Inténtelo de nuevo más tarde.
+        </div>
+    </div>
+<%}%>
+
+<%- include("../shared/footer") %>

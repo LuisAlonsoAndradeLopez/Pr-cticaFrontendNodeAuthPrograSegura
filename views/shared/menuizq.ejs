@@ -1,0 +1,12 @@
+<div class="me-auto navbar-nav">
+    <%if (locals.IsAuthenticated==true) {%>
+        <a class="nav-link" href="<%=locals.AppPath %>/">Inicio</a>
+        <a class="nav-link" href="<%=locals.AppPath%>/peliculas">Películas</a>
+        <%if (locals.user.rol=="Administrador") {%>
+            <a class="nav-link" href="<%=locals.AppPath%> /categorias">Categorías</a>
+            <a class="nav-link" href="<%=locals.AppPath%>/archivos">Archivos</a>
+            <a class="nav-link" href="<%=locals.AppPath%>/bitacora">Bitácora</a>
+            <a class="nav-link" href="<%=locals.AppPath%>/usuarios">Usuarios</a>
+        <%}%>
+    <%}%>
+</div>

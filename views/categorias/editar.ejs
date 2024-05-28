@@ -1,0 +1,50 @@
+<% locals.Title="Categorias" %>
+<% locals.SubTitle="Editar" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"> <a href="<%=locals.AppPath %>/categorias/" class="text-decoration-none"
+                title="Regresar al listado">Listado</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals. SubTitle %>
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-center mb-3">
+    <%=locals. Title %> <small class="text-muted fs-5">
+            <%=locals. SubTitle %>
+        </small>
+</h2>
+
+<form method="post" novalidate="novalidate">
+    <div class="card mt-3">
+        <div class="card-body small">
+            <div class="form-floating mb-3">
+                <input placeholder="CategoriaId" readonly="" class="form-control-plaintext is-valid"
+                    type="number" id="CategoriaId" name="CategoriaId"
+                    value="<%=locals.Model.categoriaId %>">
+                <label class="form-label" for="CategoriaId">Id</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input placeholder="Nombre" class="form-control" type="text" data-val="true"
+                    data-val-required="El campo Nombre es obligatorio." id="Nombre" name="Nombre"
+                    value="<%=locals.Model.nombre %>">
+                <label class="form-label" for="Nombre">Nombre</label>
+                <span class="text-danger" data-valmsg-for="Nombre" data-valmsg-replace="true">
+                    <%=locals.error %>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <button id="btnEnviar" type="submit" class="btn btn-sm btn-danger">Guardar</button>
+        <a href="<%=locals.AppPath %>/categorias/" class="btn btn-sm btn-outline-secondary"
+            title="Cancelar">Cancelar</a>
+    </div>
+</form>
+
+<%- include("../shared/footer", { RenderScriptsSection: true }) %>

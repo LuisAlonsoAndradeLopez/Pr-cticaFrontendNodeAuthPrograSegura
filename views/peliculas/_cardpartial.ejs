@@ -1,0 +1,42 @@
+<div class="card mt-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src='<%= ((locals.Model.poster == "N/A") ? "https://via.placeholder.com/300x450" : locals.Model.poster)%>'
+                alt="<%= locals.Model.titulo %>" class="img-fluid img-thumbnail mt-2 ms-2" style="max-height: 300px;">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <div class="mb-3 ps-3">
+                    <label asp-for="PeliculaId" class="form-label form-text">Id</label>
+                    <div class="form-text text-body">
+                        <%= locals.Model.peliculaid %>
+                    </div>
+                </div>
+                <div class="mb-3 ps-3">
+                    <label asp-for="Titulo" class="form-label form-text">Título</label>
+                    <div class="form-text text-body">
+                        <%= locals.Model.titulo %>
+                    </div>
+                </div>
+                <div class="mb-3 ps-3">
+                    <label asp-for="Anio" class="form-label form-text">Año</label>
+                    <div class="form-text text-body">
+                        <%= locals.Model.anio %>
+                    </div>
+                </div>
+                <div class="mb-3 ps-3">
+                    <label asp-for="Poster" class="form-label form-text">Poster</label>
+                    <div class="form-text text-body">
+                        <%= locals.Model.poster %>
+                    </div>
+                </div>
+                <div class="mb-3 ps-3">
+                    <label asp-for="Sinopsis" class="form-label form-text">Sinopsis </label>
+                    <div class="form-text text-body">
+                        <%= locals.Model.sinopsis %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

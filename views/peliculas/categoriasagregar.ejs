@@ -1,0 +1,60 @@
+<% locals.Title="Películas" %>
+<% locals.SubTitle="Agregar categoría" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item"> <a href="<%=locals.AppPath %>/peliculas/" class="text-decoration-none"
+                title="Regresar al listado">Listado</a></li>
+        <li class="breadcrumb-item"> <a
+                href="<%=locals.AppPath%>/peliculas/categorias/<%= locals.Model.peliculaid %>"
+                class="text-decoration-none" title="Regresar a las categorías ">Categorías</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals.SubTitle %>
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-center mb-3">
+    <%=locals. Title %> <small class="text-muted fs-5">
+            <%=locals.SubTitle %>
+        </small>
+</h2>
+
+<h4 class="my-3">Agregar categoría</h4>
+
+<form method="post" novalidate="novalidate">
+    <div class="card mt-3">
+        <div class="card-body small">
+            <div class="form-floating mb-3">
+                <select class="form-select" data-val="true"
+                    data-val-required="El campo Categoría es obligatorio." id="CategoriaId"
+                    name="CategoriaId">
+                    <option value="">Seleccione una categoría</option>
+                    <% locals.Categorias.forEach(function(item) { %>
+                        <option value="<%= item.categoria Id %>">
+                            <%= item. nombre %>
+                        </option>
+                        <% }) %>
+                </select>
+                <label class="control-label" for="CategoriaId">Categoría</label>
+                <span class="text-danger" data-valmsg-for="CategoriaId" data-valmsg-replace="true">
+                    <%=locals.error %>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-3">
+        <button id="btnEnviar" type="submit" class="btn btn-sm btn-danger">Agregar</button>
+        <a href="<%=locals.AppPath %>/peliculas/categorias/<%= locals.Model.peliculaid %>"
+            class="btn btn-sm btn-outline-secondary" title="Cancelar">Cancelar</a>
+    </div>
+</form>
+
+<h4 class="my-3">Película</h4>
+
+<%- include("_cardpartial") %>
+
+<%- include("../shared/footer", { RenderScriptsSection: true }) %>

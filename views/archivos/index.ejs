@@ -1,0 +1,22 @@
+<% locals.Title="Archivos" %>
+<% locals.SubTitle="Listado" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals.SubTitle %>
+        </li>
+    </ol>
+</nav>    
+
+<h2 class="text-center mb-3"><%=locals.Title %> <small class="text-muted fs-5"><%=locals.SubTitle %></small></h2>
+
+<div class="mt-5">
+    <div class="alert alert-warning" role="alert">
+        Este apartado queda de tarea al estudiante.
+    </div>
+</div>
+
+<%- include("../shared/footer") %>

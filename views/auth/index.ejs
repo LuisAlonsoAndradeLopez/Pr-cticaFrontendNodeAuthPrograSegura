@@ -1,0 +1,38 @@
+<% locals. Title="Inicio de sesión" %>
+
+<%- include("../shared/head") %>
+
+<form action="<%=locals.AppPath %>/auth" method="post" novalidate="novalidate">
+    <div class="card mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <h1 class="h3 text-center text-danger">Bienvenido a Netflix</h1>
+            <h2 class="h6 text-center text-secondary-emphasis">Facultad de Estadística e Informática</h2>
+            <h5 class="card-card-title text-center mt-4">
+                <%= Title %>
+            </h5>
+            <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Email" type="email" data-val="true"
+                    data-val-email="El campo Correo electrónico no es correo válido."
+                    data-val-required="El campo Correo electrónico es obligatorio." id="Email" name="Email"
+                    value="<%=locals.email%>">
+                <label class="form-label" for="Email">Correo electrónico</label>
+                <span class="text-danger" data-valmsg-for="Email" data-valmsg-replace="true">
+                    <%=locals.error %>
+                </span>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" placeholder="Password" type="password" data-val="true"
+                    data-val-required="El campo Contraseña es obligatorio." id="Password" name="Password">
+                <label class="form-label" for="Password">Contraseña</label>
+                <span class="text-danger" data-valmsg-for="Password" data-valmsg-replace="true"></span>
+            </div>
+            <p class="card-text small">Ingrese sus credenciales para poder disfrutar del contenido de la
+                plataforma.</p>
+        </div>
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-danger">Iniciar sesión</button>
+        </div>
+    </div>
+</form>
+
+<%- include("../shared/footer", { RenderScriptsSection: true }) %>

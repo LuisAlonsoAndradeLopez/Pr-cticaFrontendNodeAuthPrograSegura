@@ -1,0 +1,53 @@
+<% locals.Title="Perfil de usuario" %>
+<% locals.SubTitle="Perfil" %>
+
+<%- include("../shared/head") %>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb small">
+        <li class="breadcrumb-item active" aria-current="page">
+            <%=locals. SubTitle %>
+        </li>
+    </ol>
+</nav>
+
+<h2 class="text-center mb-3">
+    <%=locals. Title %>
+</h2>
+
+<div class="card mt-3">
+    <div class="card-body">
+        <div class="mb-3 ps-3">
+            <label asp-for="Email" class="form-label form-text">Email</label>
+            <div class="form-text text-body">
+                <%=locals.Model.email %>
+            </div>
+        </div>
+        <div class="mb-3 ps-3">
+            <label asp-for="Nombre" class="form-label form-text">Nombre</label>
+            <div class="form-text text-body">
+                <%=locals.Model.nombre %>
+            </div>
+        </div>
+        <div class="mb-3 ps-3">
+            <label asp-for="Rol" class="form-label form-text">Rol</label>
+            <div class="form-text text-body">
+                <%=locals. Model.rol %>
+            </div>
+        </div>
+        <div class="mb-3 ps-3 small">
+            <label asp-for="Jwt" class="form-label form-text">Jwt</label>
+            <div class="form-text text-body">
+                <%=locals.Model.jwt %>
+            </div>
+        </div>
+        <div class="mb-3 ps-3">
+            <label class="form-label form-text">Tiempo restante</label>
+            <div class="form-text text-body">
+                <%=locals.Model.tiempo %>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include("../shared/footer") %>
